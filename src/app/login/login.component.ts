@@ -48,10 +48,22 @@ export class LoginComponent {
 
     if(!res.success && res.result.message){
     self.form.message = res.result.message  
+
     }
+
     if(res.result.inputerror){
       self.form.inputerror = res.result.inputerror
     }
+
+    if(res.success){
+        localStorage.setItem('firstName', res.result.data.firstName);
+        localStorage.setItem('roleName', res.result.data.roleName);
+        localStorage.setItem('id', res.result.data.id);
+        self.router.navigateByUrl('welcome');
+      }
+      
+    
+
   })
 
 

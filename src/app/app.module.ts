@@ -10,6 +10,9 @@ import { FormsModule } from '@angular/forms';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HttpServiceService } from './http-service.service';
 import { FooterComponent } from './footer/footer.component';
+import { UserComponent } from './user/user.component';
+import { UserListComponent } from './user/user-list.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -18,13 +21,16 @@ import { FooterComponent } from './footer/footer.component';
     LoginComponent,
     SignupComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    UserComponent,
+    UserListComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    CommonModule
 
   ],
   providers: [
