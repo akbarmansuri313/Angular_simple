@@ -42,6 +42,7 @@ export class UserListComponent implements OnInit {
       if (res.success) {
         self.form.message = res.result.message;
       }
+      self.search()
     })
   }
 
@@ -62,6 +63,12 @@ export class UserListComponent implements OnInit {
       self.form.preload = res.result.roleList
     })
   }
+  onClickCheckBox(userId: any) {
+    this.form.deleteParams = userId;
+
+  }
+
 
 }
+
 

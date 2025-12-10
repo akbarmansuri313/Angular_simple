@@ -1,14 +1,15 @@
 <div class="container-fluid">
 
     <h1 align="center" style="margin-bottom: -5; color: navy;"> User List</h1>
-
-    <table>
+    <h2 align="center" style="color: green;">{{form.message}}</h2>
+    <table align="center">
         <tr>
-            <th>First Name :</th>
+            <th>First Name : </th>
             <td><input type="text" [(ngModel)]="form.searchParams.firstName" name="firstName"
                     placeholder="Enter First Name"> </td>
                 &nbsp;&nbsp;&nbsp;
                 &nbsp;&nbsp;
+                <th> Role : </th>
             <td><select name="id" [(ngModel)]="form.searchParams.roleId" style="width: 90%;">
                     <option [ngValue]="" value="undefined">{{'---------Select Role--------'}}</option>
                     <option *ngFor="let obj  of form.preload" [value]="obj.key">{{obj.value}} </option>
@@ -16,7 +17,7 @@
                 </select> </td>
 
             <td>
-                <button (click)="search()"> search</button>
+                <button class="btn btn-dark" (click)="search()"> search</button>
             </td>
 
         </tr>
@@ -24,8 +25,12 @@
     <br>
     <table border="1" style="width: 100%;">
         <tr align="center" style="background-color: skyblue;">
+           
+            
+         <th width="1%"> Select</th> 
             <th width="1%">S.No</th>
-            <th width="1%">Image</th>
+        
+             <th width="1%">Image</th>
             <th width="3%">FirstName</th>
             <th width="5%">LastName</th>
             <th width="5%">LoginId</th>
@@ -35,8 +40,11 @@
         </tr>
 
 
-        <tr *ngFor="let l of form.list; let i = index" style="background-color: gray;">
+        <tr *ngFor="let l of form.list; let i = index" style="background-color: powderblue;">
+           
+             <td align="center"><input type="checkbox" (click)="onClickCheckBox(l.id)"></td>
             <td style="text-align: center;">{{(form.pageNo *5 )+ i+ 1}}</td>
+               
             <td> <img src="http://localhost:8080/UserCtl/profileDownload/{{l.id}}" height="55px" width="80px"></td>
             <td style="text-align: center;">{{l.firstName}}</td>
             <td style="text-align: center;">{{l.lastName}}</td>
@@ -49,9 +57,9 @@
     <br>
     <table width="100%">
         <tr>
-            <td><button [disabled]="form.pageNo == 0" (click)="previous()">previous</button></td>
-        <td><button (click)="delete()">delete</button></td>\
-          <td align="right"><button [disabled]="form.list.length<5" (click)="next()">next</button></td>
+            <td><button class="btn btn-warning" [disabled]="form.pageNo == 0" (click)="previous()">previous</button></td>
+        <td><button class="btn btn-danger" (click)="delete()">delete</button></td>\
+          <td align="right"><button class="btn btn-warning" [disabled]="form.list.length<5" (click)="next()">Next</button></td>
 </tr>
     </table>
 

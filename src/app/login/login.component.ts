@@ -14,7 +14,7 @@ export class LoginComponent {
 
   form: any = {
     data: {},
-    inputError: {}
+    inputerror: {}
   }
 
   constructor(public router: Router, public httpService: HttpServiceService) {

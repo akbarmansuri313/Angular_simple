@@ -1,6 +1,6 @@
 <div align="center" class="container">
     <span style="color: slateblue;">
-        <h1>User Registartion</h1>
+        <h1> Add User </h1>
         <h2>{{form.message}}</h2>
 
     </span>
@@ -9,21 +9,17 @@
     <form (submit)="save()">
 
         <table>
-            <tr>
-                <span style="color: blue;">
-                    <th>First Name</th>
-                </span>
-                <td><input type="text" [(ngModel)]="form.data.firstName" name="firstName"
-                        placeholder="Enter First name">
+           <tr>
+                <th>First Name</th>
+                <td><input style="width: 70%;" type="text" [(ngModel)]="form.data.firstName" name="firstName"
+                        placeholder="enter first name">
                 </td>
-
                 <td *ngIf="form.inputerror.firstName != null">
                     <font color="red">
                         {{form.inputerror.firstName}}
                     </font>
                 </td>
             </tr>
-
             <tr>
                 <span style="color: violet;">
                     <th>Last Name</th>
@@ -63,7 +59,7 @@
                 <span style="color: green;">
                     <th>Password</th>
                 </span>
-                <td><input type="text" [(ngModel)]="form.data.password" name="password" placeholder="Enter first name">
+                <td><input type="text" [(ngModel)]="form.data.password" name="password" placeholder="Enter Password">
                 </td>
                 <td *ngIf="form.inputerror.password !=null">
                     <font color="blue">
@@ -80,6 +76,18 @@
                     <font style="color: brown;">{{form.inputerror.dob}}</font>
                 </td>
             </tr>
+            <tr>
+                <th> Profile Pic :</th>
+                <td>
+                    <img src="http://localhost:8080/UserCtl/profilePic/{{form.data.id}}" height="90Px" width="90Px"> </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <input type="file" name="imageId" (change)="onFileSelect($event)" accept="image/*">
+                </td>
+            </tr>
+
 
             <tr>
                 <th></th>
